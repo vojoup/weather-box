@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 2em;
+}
+
+.header {
+  text-align: center;
+  color: black;
+}
+
+.header h1 {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.weather-icon {
+  position: absolute;
+  margin-left: 20%;
+  height: 10em;
+  width: 10em;
+  background: white;
+}
+
+.weather-list {
+  position: absolute;
+  margin-left: 40%;
+  display: block;
+  list-style: none;
+}
+
+.spinner {
+  position: absolute;
+  margin-top: 50%;
+  margin-left: 50%;
+  border-left: .3em solid green;
+  border-right: .3em solid #4c6cff;
+  border-top: .3em solid orangered;
+  border-bottom: .3em solid yellowgreen;
+  border-radius: 50%;
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
