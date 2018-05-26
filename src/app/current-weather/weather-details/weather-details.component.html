@@ -1,9 +1,9 @@
 <ul class="weather-list">
   <li class="weather-line">Momentalne je venku {{weatherInfo.temperature}} C</li>
   <li class="weather-line" *ngIf="weatherInfo.windSpeed; else noWind">{{weatherInfo.windSpeed}} m/s</li>
-  <ng-template #noWind>Momentalne nefouka zadny vitr</ng-template>
+  <ng-template #noWind><li>Momentalne nefouka zadny vitr</li></ng-template>
   <li class="weather-line" *ngIf="weatherInfo.precip; else noPrecip">Za posledni hodinu naprselo {{weatherInfo.precip}} mm</li>
-  <ng-template #noPrecip>Za posledni hodinu neprselo</ng-template>
+  <ng-template #noPrecip><li>Za posledni hodinu neprselo</li></ng-template>
   <li class="weather-line" *ngIf="weatherInfo.snow > 0">Za posledni hodinu napadlo {{weatherInfo.snow}} mm snehu</li>
   <li class="weather-line">Slunce dnes vyslo v {{weatherInfo.sunrise}}</li>
   <li class="weather-line">Slunce dnes zapada v {{weatherInfo.sunset}}</li>

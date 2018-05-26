@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body {
+  background-color: blanchedalmond;
   font-family: 'Montserrat', sans-serif;
   line-height: 2em;
 }
@@ -19,7 +20,7 @@ body {
   margin-left: 20%;
   height: 10em;
   width: 10em;
-  background: white;
+  background: inherit;
 }
 
 .weather-list {
@@ -33,10 +34,10 @@ body {
   position: absolute;
   margin-top: 50%;
   margin-left: 50%;
-  border-left: .3em solid green;
-  border-right: .3em solid #4c6cff;
-  border-top: .3em solid orangered;
-  border-bottom: .3em solid yellowgreen;
+  border-left: 2.3em solid green;
+  border-right: 2.3em solid #4c6cff;
+  border-top: 2.3em solid orangered;
+  border-bottom: 2.3em solid yellowgreen;
   border-radius: 50%;
   animation: spin 1s infinite;
 }
