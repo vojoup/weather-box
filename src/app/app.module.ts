@@ -8,6 +8,8 @@ import {WeatherServiceService} from './services/weather-service.service';
 import {HttpClientModule} from '@angular/common/http';
 import { WeatherIconComponent } from './current-weather/weather-icon/weather-icon.component';
 import { WeatherDetailsComponent } from './current-weather/weather-details/weather-details.component';
+import { PrecipationComponent } from './precipation/precipation.component';
+import { DatePipe } from './pipes/date.pipe';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { WeatherDetailsComponent } from './current-weather/weather-details/weath
     AppComponent,
     CurrentWeatherComponent,
     WeatherIconComponent,
-    WeatherDetailsComponent
+    WeatherDetailsComponent,
+    PrecipationComponent,
+    DatePipe
   ],
   imports: [
     BrowserModule,

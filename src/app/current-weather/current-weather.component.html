@@ -1,8 +1,19 @@
-<div class="container">
-  <h1 class="header">Current weather in {{city.name}}</h1>
-  <div class="weather-results" *ngIf="niceWeather && !loading">
-    <app-weather-icon [description]="niceWeather.description" [iconSrc]="currentWeather.weather.icon"></app-weather-icon>
-    <app-weather-details [weatherInfo]="niceWeather"></app-weather-details>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1>Current weather in {{city.name}}</h1>
   </div>
+
+  <div class="container-fluid">
+    <div class="container-fluid" *ngIf="niceWeather && !loading">
+      <div class="col">
+        <app-weather-icon [description]="niceWeather.description"
+                          [iconSrc]="currentWeather.weather.icon"></app-weather-icon>
+      </div>
+      <div class="col">
+        <app-weather-details [weatherInfo]="niceWeather"></app-weather-details>
+      </div>
+    </div>
+  </div>
+
   <div class="spinner" *ngIf="!niceWeather && loading"></div>
 </div>

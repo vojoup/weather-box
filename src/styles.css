@@ -5,16 +5,6 @@ body {
   line-height: 2em;
 }
 
-.header {
-  text-align: center;
-  color: black;
-}
-
-.header h1 {
-  font-size: 1.2em;
-  font-weight: bold;
-}
-
 .weather-icon {
   position: absolute;
   margin-left: 20%;
@@ -32,7 +22,7 @@ body {
 
 .spinner {
   position: absolute;
-  margin-top: 50%;
+  margin-top: 30%;
   margin-left: 50%;
   border-left: 2.3em solid green;
   border-right: 2.3em solid #4c6cff;

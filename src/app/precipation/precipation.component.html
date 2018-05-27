@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col text-center">
+    <h1>Predpoved na dalsich 48 hodin</h1>
+    <div class="row">
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let forecast of forecasts">
+          {{forecast.datetime | date}} - <span class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
