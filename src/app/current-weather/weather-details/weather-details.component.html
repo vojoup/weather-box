@@ -1,7 +1,7 @@
 <ul class="weather-list">
   <li class="weather-line">Momentálně je venku {{weatherInfo.temperature}} &deg;C</li>
   <li class="weather-line" *ngIf="weatherInfo.windSpeed; else noWind">Právě fouká vítr o
-    rychlosti{{weatherInfo.windSpeed}} m/s
+    rychlosti {{weatherInfo.windSpeed}} m/s
   </li>
   <ng-template #noWind>
     <li>Momentálně nefouká žádný vítr</li>
@@ -18,7 +18,7 @@
   <ng-template #noSnow>
     <li>Za posledni hodinu nesnězilo</li>
   </ng-template>
-  <li class="weather-line">Slunce dnes vyšlo v {{weatherInfo.sunrise}}</li>
-  <li class="weather-line">Slunce dnes zapadá v {{weatherInfo.sunset}}</li>
+  <li class="weather-line" *ngIf="weatherInfo.sunrise">Slunce dnes vyšlo v {{weatherInfo.sunrise}}</li>
+  <li class="weather-line" *ngIf="weatherInfo.sunset">Slunce dnes zapadá v {{weatherInfo.sunset}}</li>
   <li class="weather-line">UV index je momentálně {{weatherInfo.uv}}</li>
 </ul>

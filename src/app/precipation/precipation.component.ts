@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {WeatherServiceService} from '../services/weather-service.service';
 
 @Component({
   selector: 'app-precipation',
