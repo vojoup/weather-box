@@ -7,7 +7,7 @@
     <div class="container-fluid" *ngIf="niceWeather && !loading && !tooManyCalls">
       <div class="col">
         <app-weather-icon [description]="niceWeather.description"
-                          [iconSrc]="currentWeather.weather.icon"></app-weather-icon>
+                          [iconSrc]="niceWeather.icon"></app-weather-icon>
       </div>
       <div class="col">
         <app-weather-details [weatherInfo]="niceWeather"></app-weather-details>

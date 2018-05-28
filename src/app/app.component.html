@@ -1,9 +1,13 @@
 <div class="container-fluid">
-  <app-current-weather></app-current-weather>
-  <div
-    style="position: absolute;
+  <div class="container-fluid" *ngIf="niceWeather && !loading && !tooManyCalls">
+    <app-current-weather [city]="city" [niceWeather]="niceWeather"></app-current-weather>
+    <div
+      style="position: absolute;
     margin-top: 20%;
     margin-left: 30%;">
-    <app-precipation></app-precipation>
+      <app-precipation [forecasts]="niceWeather.forecast48"></app-precipation>
+    </div>
   </div>
+  <div class="spinner" *ngIf="!niceWeather && loading && !tooManyCalls"></div>
+  <h2 *ngIf="tooManyCalls">Too many calls issued - wait for a while and then try again</h2>
 </div>

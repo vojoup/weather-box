@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WeatherServiceService} from '../services/weather-service.service';
 import {WeatherInterface} from '../models/weather.interface';
 
@@ -9,34 +9,10 @@ import {WeatherInterface} from '../models/weather.interface';
 })
 export class CurrentWeatherComponent implements OnInit {
 
-  city: { name: string, code: number } = {name: 'Prague', code: 3067696};
-  currentWeather;
-  loading: boolean;
-  niceWeather: WeatherInterface;
-  tooManyCalls: boolean;
+  @Input() niceWeather: WeatherInterface;
+  @Input() city: {name: string, code: number};
 
-  constructor(private _weather: WeatherServiceService) {
-    this.loading = true;
-    this._weather.getCurrentWeatherForCity().subscribe(data => {
-      if (data.data) {
-        this.currentWeather = data.data[0];
-        this.niceWeather = {
-          cityName: this.city.name,
-          temperature: this.currentWeather.temp,
-          windSpeed: this.currentWeather.wind_speed,
-          description: this.currentWeather.weather.description,
-          sunrise: this.currentWeather.sunrise,
-          sunset: this.currentWeather.sunset,
-          uv: this.currentWeather.uv,
-          pressure: this.currentWeather.pressure,
-          precip: this.currentWeather.precip ? this.currentWeather.precip : 0,
-          snow: this.currentWeather.snow ? this.currentWeather.snow : 0,
-          visibility: this.currentWeather.visibility ? this.currentWeather.visibility : 0,
-        };
-        this.loading = false;
-        this.tooManyCalls = false;
-      }
-    }, err => this.tooManyCalls = true);
+  constructor() {
   }
 
   ngOnInit() {

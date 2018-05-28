@@ -24,4 +24,6 @@ export interface WeatherInterface {
   precip?: number; // Precipitation in last hour in mm
   snow?: number; // Snowfall in last hour in mm
   visibility?: number; // In meters
+  icon: string;
+  forecast48: Array<any>;
 }

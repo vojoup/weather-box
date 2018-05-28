@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {WeatherServiceService} from '../services/weather-service.service';
 
 @Component({
@@ -8,19 +8,11 @@ import {WeatherServiceService} from '../services/weather-service.service';
 })
 export class PrecipationComponent implements OnInit {
 
-  forecasts: Array<any> = [];
+  @Input() forecasts: Array<any>;
   index = 1;
   tooMuchCalls: boolean;
 
-  constructor(private _weather: WeatherServiceService) {
-    this._weather.get48HoursForecast().subscribe(forecast => {
-      if (forecast.data) {
-        this.tooMuchCalls = false;
-        this.forecasts = forecast.data;
-        this.processForecasts();
-        console.log(forecast.data);
-      }
-    }, err => this.tooMuchCalls = true);
+  constructor() {
   }
 
   processForecasts(): void {
@@ -67,6 +59,7 @@ export class PrecipationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.processForecasts();
   }
 
 }
