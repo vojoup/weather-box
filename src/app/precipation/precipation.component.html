@@ -2,12 +2,40 @@
   <div class="col text-center">
     <h1>Predpoved na dalsich 48 hodin</h1>
     <div class="row">
-      <ul class="list-group">
-        <li class="list-group-item"
-          *ngFor="let forecast of forecasts">
-          {{forecast.datetime | date}} - <span class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>
-        </li>
-      </ul>
+
+      <div class="col" *ngIf="!tooMuchCalls; else noResponse">
+        <div class="carousel slide" data-ride="carousel" style="background-color: #4c6cff">
+          <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let forecast of forecasts"
+                 [ngClass]="{'active': forecast.index === getIndex()}">
+              {{forecast.datetime | date}} - <span
+              [ngStyle]="{'background-color': forecast.temperatureColor, 'color': forecast.textColor}"
+              class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>
+            </div>
+          </div>
+          <button (click)="showPrev()" type="button" class="carousel-control-prev" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </button>
+          <button (click)="showNext()" type="button" class="carousel-control-next" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </button>
+        </div>
+      </div>
+
+      <ng-template #noResponse>
+        <h3>Too many recent calls</h3>
+      </ng-template>
+
+      <!--<ul class="list-group">-->
+      <!--<li class="list-group-item"-->
+      <!--*ngFor="let forecast of forecasts">-->
+      <!--{{forecast.datetime | date}} - <span-->
+      <!--[ngStyle]="{'background-color': forecast.temperatureColor, 'color': forecast.textColor}"-->
+      <!--class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>-->
+      <!--</li>-->
+      <!--</ul>-->
     </div>
   </div>
 </div>

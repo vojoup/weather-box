@@ -5,13 +5,13 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class DatePipe implements PipeTransform {
 
-  date: string;
+  date: Array<string>;
   year: string;
   month: string;
   day: string;
   hour: string;
 
-  transform(value: any, args?: any): any {
+  transform(value: string, args?: any): string {
     let dayAndHour: Array<string>;
 
     this.date = value.split('-');

@@ -4,7 +4,7 @@
   </div>
 
   <div class="container-fluid">
-    <div class="container-fluid" *ngIf="niceWeather && !loading">
+    <div class="container-fluid" *ngIf="niceWeather && !loading && !tooManyCalls">
       <div class="col">
         <app-weather-icon [description]="niceWeather.description"
                           [iconSrc]="currentWeather.weather.icon"></app-weather-icon>
@@ -15,5 +15,5 @@
     </div>
   </div>
 
-  <div class="spinner" *ngIf="!niceWeather && loading"></div>
+  <div class="spinner" *ngIf="!niceWeather && loading && !tooManyCalls"></div>
 </div>
