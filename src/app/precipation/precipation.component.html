@@ -4,13 +4,24 @@
     <div class="row">
 
       <div class="col" *ngIf="!tooMuchCalls; else noResponse">
-        <div class="carousel slide" data-ride="carousel" style="background-color: #4c6cff">
+        <div class="carousel slide" data-ride="carousel" style="background-color: blanchedalmond">
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let forecast of forecasts"
                  [ngClass]="{'active': forecast.index === getIndex()}">
               {{forecast.datetime | date}} - <span
               [ngStyle]="{'background-color': forecast.temperatureColor, 'color': forecast.textColor}"
-              class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>
+              class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span> - {{forecast.weather.description}}
+              <hr>
+              <div class="col">
+                <ul class="list-group">
+                  <li class="">
+                    Rychlost vetru: {{forecast.wind_spd}} {{forecast.wind_cdir}}
+                  </li>
+                  <li>
+                    <img src="../../assets/icons/{{forecast.weather.icon}}.png" alt="{{forecast.weather.description}}">
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <button (click)="showPrev()" type="button" class="carousel-control-prev" data-slide="prev">
@@ -28,14 +39,6 @@
         <h3>Too many recent calls</h3>
       </ng-template>
 
-      <!--<ul class="list-group">-->
-      <!--<li class="list-group-item"-->
-      <!--*ngFor="let forecast of forecasts">-->
-      <!--{{forecast.datetime | date}} - <span-->
-      <!--[ngStyle]="{'background-color': forecast.temperatureColor, 'color': forecast.textColor}"-->
-      <!--class="badge badge-primary badge-pill">{{forecast.temp}} &deg;C</span>-->
-      <!--</li>-->
-      <!--</ul>-->
     </div>
   </div>
 </div>
